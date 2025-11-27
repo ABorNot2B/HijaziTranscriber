@@ -62,8 +62,68 @@ HijaziTranscriber now includes a custom fallback transcriber for [UNK] words fr.
 - Sun letter assimilation: əlX → əX: (X = sun consonant)
 - u: → w if  word-initial or standalone
 - i: → je if word-initial or standalone
-
 </pre>
+
+  ## NEW VERSION NOTES (v2.1):
+
+**Phonological Rules:**
+
+**Taa Marbuta (ة):**
+
+-Surfaces as [ə] if sentence‑final or before punctuation (comma, period, etc.).
+
+-Surfaces as [t] only if immediately followed by a definite article (ال).
+
+-Otherwise defaults to [ə].
+  
+**Waw (و):**
+
+-[w] if stand‑alone or word‑initial.
+
+-[uː] if mid‑word or word‑final.
+  
+**Ya' (ي):**
+
+-[jə] if stand‑alone.
+
+-[j] if word‑initial.
+
+-[iː] if mid‑word or word‑final.
+  
+**Definite Article (ال):**
+
+-Normalizes aːl → əl at word‑initial.
+
+-Sun letters (ت ث د ذ ر ز س ش ص ض ط ظ ل ن):
+
+-Assimilation: əl + SUN → əSUNː… (schwa retained, l dropped, sun consonant lengthened).
+
+-Also applies to waːl + SUN and jaːl + SUN.
+
+-Moon letters (all others):
+
+-Default: əl + MOON… (schwa + l both retained).
+
+-If preceded by a vowel across word boundary → schwa drops: l + MOON….
+  
+**Cross‑Word Assimilation:**
+
+-n + l → lː (final n deleted, following l lengthened).
+  
+**Double Consonant Collapse:**
+
+-Identical consonants in succession collapse to a single consonant (as Arabic phonotactics do not allow the same consonant sound twice without gemination).
+  
+**Technical Improvements:**
+
+-No [UNK] tokens: unmapped characters drop silently instead of surfacing as [UNK].
+
+-Safe lexicon loading: GUI launches even if lexicon.csv is missing or malformed.
+
+-Tkinter GUI stability: ensured clean startup with root.mainloop() and error‑safe fallbacks.
+
+-Regex assimilation logic: unified handling of əl, waːl, and jaːl prefixes for sun letters.
+
 
 This update reflects a shift from dependency to autonomy. Ongoing work includes expanding the lexicon and refining rule coverage to better capture Hijazi-specific patterns.
 
