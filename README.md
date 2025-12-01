@@ -66,7 +66,9 @@ HijaziTranscriber now includes a custom fallback transcriber for [UNK] words fr.
 
   ## NEW VERSION NOTES (v2.1):
 
+
 **Phonological Rules:**
+
 
 **Taa Marbuta (ة):**
 
@@ -75,12 +77,14 @@ HijaziTranscriber now includes a custom fallback transcriber for [UNK] words fr.
 -Surfaces as [t] only if immediately followed by a definite article (ال).
 
 -Otherwise defaults to [ə].
+
   
 **Waw (و):**
 
 -[w] if stand‑alone or word‑initial.
 
 -[uː] if mid‑word or word‑final.
+
   
 **Ya' (ي):**
 
@@ -89,30 +93,37 @@ HijaziTranscriber now includes a custom fallback transcriber for [UNK] words fr.
 -[j] if word‑initial.
 
 -[iː] if mid‑word or word‑final.
+
   
-**Definite Article (ال):**
+**Definite Article (ال) (v.2.2 notes):**
 
--Normalizes aːl → əl at word‑initial.
+Version 2.1 exhibited a few limitations when handling the Arabic definite article ال.
+This necessitated a patch including a multi-step approach to handling this prefix and others as shown below:
 
--Sun letters (ت ث د ذ ر ز س ش ص ض ط ظ ل ن):
+**STEP 1** 
+Prefix ∈ {Ø, w, j, fɪ, bɪ}
+Vowel = ə for Ø/w/j, ɪ for fɪ/bɪ (ɪ replaces schwa)
+Form = PREFIX + l + ROOT
+Examples: البيت → əlbe:t, في البيت → fɪlbe:t, بالطريق → bɪtˤːariːg
 
--Assimilation: əl + SUN → əSUNː… (schwa retained, l dropped, sun consonant lengthened).
+**STEP 2** 
+Sun‑letter assimilation → (PREFIX + ə/ɪ) + l + SUN → PREFIX + ə/ɪ + SUNː
+Examples: الشمس → əʃːams, والشمس → wəʃːams, في الشمس → fɪʃːams
 
--Also applies to waːl + SUN and jaːl + SUN.
+**STEP 3** 
+Sandhi → after vowel‑final words, drop schwa for Ø/w/j; retain ɪ for fɪ/bɪ.
+Examples: في البيت → filbe:t, هو بالبيت → hu bɪlbe:t
 
--Moon letters (all others):
 
--Default: əl + MOON… (schwa + l both retained).
-
--If preceded by a vowel across word boundary → schwa drops: l + MOON….
-  
 **Cross‑Word Assimilation:**
 
 -n + l → lː (final n deleted, following l lengthened).
+
   
 **Double Consonant Collapse:**
 
 -Identical consonants in succession collapse to a single consonant (as Arabic phonotactics do not allow the same consonant sound twice without gemination).
+
   
 **Technical Improvements:**
 
