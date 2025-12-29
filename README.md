@@ -1,13 +1,13 @@
 ## Features
 - Lexicon-based IPA transcription for Hijazi Arabic
 - Diacritic stripping for input normalization
-- ~~[UNK] tagging for out-of-vocabulary words~~ v1.1 is supports fallback, see details below
+- ~~[UNK] tagging for out-of-vocabulary words~~ v1.1 supports fallback, see details below
 - UTF-8 safe
 - GUI mode
 
 ## Limitations
 - Only one IPA variant per word is retained. Future versions may support variant-aware transcription.
-- ~~Lexicon must be manually curated. [UNK] is returned for missing entries.~~ v1.1 is supports fallback, see details below.
+- ~~Lexicon must be manually curated. [UNK] is returned for missing entries.~~ v1.1 supports fallback, see details below.
 
 ## v1.1 Release Notes: 
 HijaziTranscriber now includes a custom fallback transcriber for [UNK] words fr. When a word is not found in the lexicon, the tool applies a 1:1 character-to-IPA mapping with phonological rules tailored to Hijazi Arabic. A GUI toggle lets users choose whether to display fallback tags ([F]) for transparency.
@@ -136,7 +136,8 @@ Examples: في البيت → filbe:t, هو بالبيت → hu bɪlbe:t
 -Regex assimilation logic: unified handling of əl, waːl, and jaːl prefixes for sun letters.
 
 
-This update reflects a shift from dependency to autonomy. Ongoing work includes expanding the lexicon and refining rule coverage to better capture Hijazi-specific patterns.
+## New Version Notes (2.3)
+Lexicon expansion from 2,322 unique word types to 2,799 (from 5,219 lexical items to 6,377).
 
 
 ## Citation
