@@ -1,18 +1,22 @@
-## Features
+This tool has been developed as a side project to my Hijazi Corpus. To support transparency and reproducibility, the complete corpus is publicly accessible via Google Drive:
+[https://drive.google.com/drive/folders/1f_oIOTuoxnJ394sLFAPFKHRLbKDmDZmJ]
+
+
+## Tool Features
 - Lexicon-based IPA transcription for Hijazi Arabic
 - Diacritic stripping for input normalization
-- ~~[UNK] tagging for out-of-vocabulary words~~ v1.1 supports fallback, see details below
+- v1.1 supports fallback, see details below
 - UTF-8 safe
 - GUI mode
 
 ## Limitations
 - Only one IPA variant per word is retained. Future versions may support variant-aware transcription.
-- ~~Lexicon must be manually curated. [UNK] is returned for missing entries.~~ v1.1 supports fallback, see details below.
+- Fallback system transcribes 1:1 (Arabic grapheme to IPA symbol).
 
 ## v1.1 Release Notes: 
-HijaziTranscriber now includes a custom fallback transcriber for [UNK] words fr. When a word is not found in the lexicon, the tool applies a 1:1 character-to-IPA mapping with phonological rules tailored to Hijazi Arabic. A GUI toggle lets users choose whether to display fallback tags ([F]) for transparency.
+HijaziTranscriber now includes a custom fallback transcriber for [UNK] words. When a word is not found in the lexicon, the tool applies a 1:1 character-to-IPA mapping with phonological rules tailored to Hijazi Arabic. A GUI toggle lets users choose whether to display fallback tags ([F]) for transparency.
 
-# What’s New
+# What’s New (v1.1)
 - Fallback-aware transcription with rule-based IPA
 - [F] tags for out-of-lexicon words
 - GUI checkbox to toggle fallback visibility
@@ -137,7 +141,7 @@ Examples: في البيت → filbe:t, هو بالبيت → hu bɪlbe:t
 
 
 ## New Version Notes (2.3)
-Lexicon expansion from 2,322 unique word types to 2,799 (from 5,219 lexical items to 6,377).
+Lexicon expansion from 2,322 unique word types to 2,799 (from 5,219 lexical items to 6,377 overall).
 
 
 ## Citation
